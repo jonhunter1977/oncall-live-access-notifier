@@ -1,0 +1,23 @@
+{
+  "name": "oncall-live-access-notifier",
+  "version": "1.0.0",
+  "description": "Reads on call data from river-styx and calls rundeck job to update on call live access",
+  "main": "app.js",
+  "scripts": {
+    "start": "NODE_ENV=development DEBUG=* node app.js",
+    "test": "NODE_ENV=development DEBUG=* mocha -w"
+  },
+  "author": "Jon Hunter",
+  "license": "ISC",
+  "dependencies": {
+    "amqp": "^0.2.4",
+    "bluebird": "^2.10.1",
+    "debug": "^2.2.0",
+    "nconf": "^0.8.0",
+    "request": "^2.63.0"
+  },
+  "devDependencies": {
+    "expect.js": "^0.3.1",
+    "mocha": "^2.3.3"
+  }
+}
