@@ -26,7 +26,11 @@ riverStyx.start().then(function(){
 
         debug(new Date(), 'Accounts to be enabled : ' + accountsForLiveAccess);
 
-        rundeck.runJob(config.get('rundeckJob:jobId'), '?argString=-dir Automation&host=127.0.0.1&users=' + accountsForLiveAccess).then(function(data){
+        var directory = config.get("rundeckJob:directory") || '';
+        var host = config.get("rundeckJob:host") || '';
+        var group = config.get("rundeckJob:group") || '';
+
+        rundeck.runJob(config.get('rundeckJob:jobId'), '?argString=-dir ' + directory + ' -host ' + host + ' -group ' + group + ' -users ' + accountsForLiveAccess).then(function(data){
             debug(new Date(), 'Outcome of rundeck API call : ' + data)
         }).catch(function(err){
             debug(new Date(), "Error in rundeck API call: " + err);
